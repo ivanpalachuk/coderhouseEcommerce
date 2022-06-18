@@ -1,0 +1,13 @@
+ .Carrito {
+    height: 40px;
+    border-radius: 50%;
+    border-color:black 10px solid;
+    padding: 10px;
+}
+
+.Carrito:hover {
+    cursor: pointer;
+    height: 80px;
+    transition: 80ms;
+    border-radius: 0%;
+}
