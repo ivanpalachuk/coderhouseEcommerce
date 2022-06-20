@@ -14,7 +14,8 @@
     flex: wrap;
     justify-content: space-between;
     margin-bottom: 150px;
-    border-top: solid black 1px
+    border-top: solid black 1px;
+    position: relative;
 }
 
 .NavBar-Sections {
@@ -26,19 +27,21 @@
     width: 85%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12px;
-    list-style: none;
     display: flex;
     padding: 15px;
     justify-content: space-between;
+    position: absolute;
     box-shadow: -1px 29px 33px 4px rgba(0, 0, 0, 0.62);
     -webkit-box-shadow: -1px 29px 33px 4px rgba(0, 0, 0, 0.62);
-    -moz-box-shadow: -1px 29px 33px 4px rgba(0, 0, 0, 0.62);
-
+    right: 65px;
+    top: 160px;
+    border-radius: 15px;
 }
 
+.Section-button:hover {
+    cursor: pointer;
+}
 
 .Main-Logo {
     width: 30%;
 }
-

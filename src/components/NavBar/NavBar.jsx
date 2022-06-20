@@ -12,17 +12,17 @@ const NavBar = () => {
             </nav>
             <nav className="NavBar-Middle">
                 <a href="#top"><img src={logo} alt="logo" className="Main-Logo" /></a>
-                <ul className="NavBar-Sections">
-                    <li>Inicio</li>
-                    <li>Alimentos</li>
-                    <li>Juguetes</li>
-                    <li>Indumentaria</li>
-                    <li>Ropa Para Fans</li>
-                    <li>Rescates</li>
-                    <li>Nosotros</li>
-                    <li>Contacto</li>
-                    <li>FAQ/Ayuda</li>
-                </ul>
+                <section className="NavBar-Sections">
+                    <div className="Section-button">Inicio</div>
+                    <div className="Section-button">Alimentos</div>
+                    <div className="Section-button">Juguetes</div>
+                    <div className="Section-button">Indumentaria</div>
+                    <div className="Section-button">Ropa Para Fans</div>
+                    <div className="Section-button">Rescates</div>
+                    <div className="Section-button">Nosotros</div>
+                    <div className="Section-button">Contacto</div>
+                    <div className="Section-button">FAQ/Ayuda</div>
+                </section>
             </nav>
         </>
     )
