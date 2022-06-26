@@ -3,12 +3,15 @@ import ItemListContainer from "./components/Container/ItemListContainer"
 import Footer from './components/Footer/Footer';
 import "./assets/css/app.css"
 
+
+
 function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer texto= "¡¡¡Articulos en breve!!!" />
+      <ItemListContainer />
       <Footer />
+     
     </>
   );
 }
