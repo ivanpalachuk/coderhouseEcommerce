@@ -12,16 +12,11 @@ function ItemDetailContainer() {
     useEffect(() => {
         Task
             .then((res) => {
-                console.log(id)//Checkeo que el param me llega
-                setItem(res.find(x => x.id === id))// Seteo el item que me devuelve el Find
-                console.log(res.find(x => x.id === 2))//Checkeando que la funcion Find me funciona; fozando el id
-                console.log(item)//Checkeo cual fue el saldo de ese setItem
+                setItem(res.find(x => x.id == id))// Seteo el item que me devuelve el Find
             })
             .catch((err) => console.log(err))
             .finally(() => setLoading(false));
-    }, [id,item])
-
-
+    }, [id, item])
 
     return (
         loading ? <div>Cargando el articulo para ver el detalle como un champeon</div> :

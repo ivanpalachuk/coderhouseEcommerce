@@ -1,16 +1,16 @@
 import { Card } from "react-bootstrap"
 
-function ItemDetail(item) {
+function ItemDetail(props) {
     return (
-        <Card style={{ width: '18rem' }} key={item.id}>
-            <Card.Img variant="top" src={item.foto} />
+        <Card style={{ width: '18rem' }} key={props.item.id}>
+            <Card.Img variant="top" src={props.item.foto} />
             <Card.Body>
-                <Card.Title>{item.nombre}</Card.Title>
+                <Card.Title>{props.item.nombre}</Card.Title>
                 <Card.Text>
-                    {item.descripcion}
+                    {props.item.descripcion}
                 </Card.Text>
                 <Card.Text>
-                    ${item.precio}
+                    ${props.item.precio}
                 </Card.Text>
             </Card.Body>
         </Card>
