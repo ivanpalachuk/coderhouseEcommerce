@@ -45,3 +45,7 @@
 .Main-Logo {
     width: 30%;
 }
+
+.Section-button-activo {
+    border:solid black 2px;
+}
