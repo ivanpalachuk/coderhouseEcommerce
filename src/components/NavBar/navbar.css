@@ -36,6 +36,7 @@
     right: 65px;
     top: 160px;
     border-radius: 15px;
+    text-decoration: none;
 }
 
 .Section-button:hover {
@@ -47,5 +48,11 @@
 }
 
 .Section-button-activo {
-    border:solid black 2px;
+    border: solid black 2px;
+    text-decoration: none;
+}
+
+.Section-button-inactivo {
+    color: aliceblue;
+    text-decoration: none;
 }

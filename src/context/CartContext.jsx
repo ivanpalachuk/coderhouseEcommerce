@@ -9,14 +9,18 @@ export const CartContext = createContext();
 export function CartProvider({ children }) {
 
     const [itemsOnCart, setItemsOnCart] = useState([])
+    const [cart, setCart] = useState([])
 
-    const isInCart = (id) => {
+    const isInCart = (item) => {
+        if(itemsOnCart.find(item)){}
     }
+
     const addItem = (item) => {
-        setItemsOnCart(itemsOnCart.push(item))
+        setCart([...itemsOnCart, item])
     }
-    const removeItem = (id) => { 
-        
+
+    const removeItem = (id) => {
+
     }
 
     const clear = () => {
