@@ -15,11 +15,16 @@ function Item(props) {
                 <Card.Text>
                     ${props.precio}
                 </Card.Text>
+
                 {props.botonEliminar ?
                     <Button variant="primary">Eliminar del carrito</Button>
                     : <Link to={`/detail/${props.id}`}>
                         <Button variant="primary">Detalle del producto</Button>
                     </Link>}
+
+                {props.cantidadInCart ?
+                    <div>Cantidad en carrito = {props.cantidadInCart}</div> : <></>
+                }
             </Card.Body>
         </Card>
     )

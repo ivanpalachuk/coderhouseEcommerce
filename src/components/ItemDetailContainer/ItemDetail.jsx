@@ -7,17 +7,17 @@ import ItemCount from "../ItemCount/ItemCount"
 
 function ItemDetail(props) {
 
-    const [itemsOnCart, inInCart, addItem] = useContext(CartContext)
+    const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
     const [cantidad, setCantidad] = useState()
 
 
     const funcionContador = (contador) => {
         setCantidad(contador)
-    }
+        const productToCart = { item: props.item, cantidad: contador }
+        addItem(productToCart)
+        console.log(isInCart(productToCart))
 
-    const productToCart = { item: props.item, cantidad }
-    console.log(productToCart)
-    addItem(productToCart)
+    }
 
     console.log("El carrito tiene", itemsOnCart)
 

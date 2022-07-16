@@ -6,24 +6,26 @@ import Item from "../Items/Item"
 
 
 function Cart() {
-  const [itemsOnCart, clear] = useContext(CartContext)
-  console.log(itemsOnCart)
+  const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
+  console.log(itemsOnCart.length)
 
-  return (<>
-    CARRO DE COMPRAS
-    <CardGroup>
-      {itemsOnCart.map((item) => {
-        return <>
-          <Item id={item.id} foto={item.foto} nombre={item.nombre} descripcion={item.descripcion} precio={item.precio} key={item.id}
-            botonEliminar={true}>
-          </Item>
-        </>
-      })}
-    </CardGroup >
-    <button onClick={clear}>Eliminar todos los articulos</button>
-    <button >Ir a pagar</button>
-
-  </>
+  return (
+    !itemsOnCart.length == 0 ?
+      <>
+        <CardGroup>
+          {itemsOnCart.map((item) => {
+            return <>
+              <Item id={item.item.id} foto={item.item.foto} nombre={item.item.nombre} descripcion={item.item.descripcion} precio={item.item.precio} key={item.item.id}
+                botonEliminar={true} cantidadInCart={item.cantidad}>
+              </Item>
+            </>
+          })}
+        </CardGroup >
+        <button onClick={clear}>Eliminar todos los articulos</button>
+        <button >Ir a pagar</button>
+      </>
+      :
+      <Link to="/"><Button>Navegar para ver mas articulos</Button></Link>
   )
 }
 

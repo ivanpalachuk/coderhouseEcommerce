@@ -9,24 +9,27 @@ export const CartContext = createContext();
 export function CartProvider({ children }) {
 
     const [itemsOnCart, setItemsOnCart] = useState([])
-    const [cart, setCart] = useState([])
 
     const isInCart = (item) => {
-        if(itemsOnCart.find(item)){}
+        return (itemsOnCart.find(producto => producto.item.id == item.item.id) ? true : false)
     }
+
 
     const addItem = (item) => {
-        setCart([...itemsOnCart, item])
+        if (!isInCart(item)) {
+            setItemsOnCart([...itemsOnCart, item])
+        } else {
+            console.log("Ya tenes eso en el carrito ameo")
+        }
     }
 
-    const removeItem = (id) => {
+    const removeItem = (item) => {
 
     }
 
     const clear = () => {
         setItemsOnCart([])
     }
-
 
 
     return (
