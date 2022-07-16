@@ -1,12 +1,25 @@
-import { useContext } from "react"
-import { Card, Button, Alert } from "react-bootstrap"
-import { CartContext } from "../context/CartContext"
+import { useContext, useState } from "react"
+import { Card, Button } from "react-bootstrap"
+import { CartContext } from "../../context/CartContext"
+import { Link } from "react-router-dom"
+import ItemCount from "../ItemCount/ItemCount"
 
 
 function ItemDetail(props) {
-    const [itemsOnCart, isInCart, addItem] = useContext(CartContext)
 
-    console.log(itemsOnCart)
+    const [itemsOnCart, inInCart, addItem] = useContext(CartContext)
+    const [cantidad, setCantidad] = useState()
+
+
+    const funcionContador = (contador) => {
+        setCantidad(contador)
+    }
+
+    const productToCart = { item: props.item, cantidad }
+    console.log(productToCart)
+    addItem(productToCart)
+
+    console.log("El carrito tiene", itemsOnCart)
 
     return (
         <Card style={{ width: '18rem' }} key={props.item.id}>
@@ -20,11 +33,8 @@ function ItemDetail(props) {
                     ${props.item.precio}
                 </Card.Text>
                 <Card>
-                    Cantidad
-                    <input type="number" id="cantidad" name="cantidad"
-                        min="1" max="100"></input>
+                    {cantidad ? <Link to={"/cart"}><Button>Terminar la compra</Button></Link> : <ItemCount stock={props.item.stock} initial={0} onAdd={funcionContador} />}
                 </Card>
-                <Button onClick={() => isInCart(props.item.id) ? addItem(props.item) : Alert("Ya tenes este item en tu carrito")} variant="primary">Agregar al carrito</Button>
             </Card.Body>
         </Card>
     )
