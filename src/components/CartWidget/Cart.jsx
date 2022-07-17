@@ -7,7 +7,6 @@ import Item from "../Items/Item"
 
 function Cart() {
   const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
-  console.log(itemsOnCart.length)
 
   return (
     !itemsOnCart.length == 0 ?

@@ -14,13 +14,15 @@ export function CartProvider({ children }) {
         return (itemsOnCart.find(producto => producto.item.id == item.item.id) ? true : false)
     }
 
-
     const addItem = (item) => {
+        let items = [...itemsOnCart]
         if (!isInCart(item)) {
-            setItemsOnCart([...itemsOnCart, item])
+            items.push(item);
         } else {
-            console.log("Ya tenes eso en el carrito ameo")
+            let existingItem = itemsOnCart.find(producto => producto.item.id == item.item.id)
+            existingItem.cantidad += item.cantidad;
         }
+        setItemsOnCart(items)
     }
 
     const removeItem = (item) => {
@@ -30,7 +32,6 @@ export function CartProvider({ children }) {
     const clear = () => {
         setItemsOnCart([])
     }
-
 
     return (
         <CartContext.Provider value={[itemsOnCart, addItem, removeItem, clear, isInCart]}>

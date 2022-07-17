@@ -15,11 +15,8 @@ function ItemDetail(props) {
         setCantidad(contador)
         const productToCart = { item: props.item, cantidad: contador }
         addItem(productToCart)
-        console.log(isInCart(productToCart))
 
     }
-
-    console.log("El carrito tiene", itemsOnCart)
 
     return (
         <Card style={{ width: '18rem' }} key={props.item.id}>
