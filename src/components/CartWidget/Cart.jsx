@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
-import { useContext, useEffect } from "react"
-import { Alert, CardGroup, Button } from "react-bootstrap"
+import { useContext } from "react"
+import { CardGroup, Button } from "react-bootstrap"
 import { CartContext } from "../../context/CartContext"
 import Item from "../Items/Item"
 
@@ -22,6 +22,7 @@ function Cart() {
         </CardGroup >
         <button onClick={clear}>Eliminar todos los articulos</button>
         <button >Ir a pagar</button>
+        <div>Total  </div>
       </>
       :
       <Link to="/"><Button>Navegar para ver mas articulos</Button></Link>
