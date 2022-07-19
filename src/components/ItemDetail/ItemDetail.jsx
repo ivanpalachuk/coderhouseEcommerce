@@ -7,7 +7,7 @@ import ItemCount from "../ItemCount/ItemCount"
 
 function ItemDetail(props) {
 
-    const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
+    const { addItem } = useContext(CartContext)
     const [cantidad, setCantidad] = useState()
 
 

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { CardGroup, Button } from "react-bootstrap"
 import { CartContext } from "../../context/CartContext"
-import Item from "../Items/Item"
+import Item from "../Item/Item"
 
 
 function Cart() {
-  const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
+  const { itemsOnCart, addItem, removeItem, clear, isInCart } = useContext(CartContext)
 
   return (
     !itemsOnCart.length == 0 ?
@@ -17,6 +17,7 @@ function Cart() {
               <Item id={item.item.id} foto={item.item.foto} nombre={item.item.nombre} descripcion={item.item.descripcion} precio={item.item.precio} key={item.item.id}
                 botonEliminar={true} cantidadInCart={item.cantidad}>
               </Item>
+
             </>
           })}
         </CardGroup >

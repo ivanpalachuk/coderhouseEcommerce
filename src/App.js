@@ -1,10 +1,10 @@
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from "./components/Container/ItemListContainer"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import Footer from './components/Footer/Footer';
 import "./assets/css/app.css"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import Cart from './components/CartWidget/Cart';
+import Cart from './components/Cart/Cart';
 import NotFound from './components/NotFound/NotFound';
 import { CartProvider } from "./context/CartContext"
 

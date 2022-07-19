@@ -7,7 +7,6 @@ export const CartContext = createContext();
 //Creo el componente
 
 export function CartProvider({ children }) {
-
     const [itemsOnCart, setItemsOnCart] = useState([])
     //const [gtotal, setgTotal] = useState(0)
 
@@ -27,7 +26,7 @@ export function CartProvider({ children }) {
     }
 
     const removeItem = (item) => {
-        setItemsOnCart(itemsOnCart.filter(cartItem => cartItem.id !== item.id));
+         setItemsOnCart(itemsOnCart.filter(x => x.id != item.id))
         // La negacion del id es importante. La funcion del filter te devuelve todos los elementos que cumplan con X condicion. Si no le hacemos la negacion, me va a devolver el único item que cumple con esa condicion, nosotros queremos que me devuelva el contrario.
     }
 
@@ -35,21 +34,14 @@ export function CartProvider({ children }) {
         setItemsOnCart([])
     }
 
-    // const grandTotal = () => {
-    //     let total = 0
-    //     for (let i = 0; i < itemsOnCart.length; i++) {
-    //         total = itemsOnCart[i].precio += itemsOnCart.precio[i + 1]
-    //     }
-    //     setgTotal(total)
-    //     return gtotal
-    // }
 
     return (
-        <CartContext.Provider value={[itemsOnCart, addItem, removeItem, clear, isInCart]}>
+        <CartContext.Provider value={{ itemsOnCart, addItem, removeItem, clear }}>
             {children}
         </CartContext.Provider>
     )
 }
+
 
 
 

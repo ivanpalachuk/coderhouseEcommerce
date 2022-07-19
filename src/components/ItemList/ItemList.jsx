@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useParams } from "react-router-dom"
 //Componentes
 import Task from '../Helpers/Task';
-import Item from './Item';
+import Item from '../Item/Item';
 //Estetica
 import { CardGroup } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'

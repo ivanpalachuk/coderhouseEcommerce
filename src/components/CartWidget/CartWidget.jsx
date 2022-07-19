@@ -5,7 +5,7 @@ import { useContext } from "react"
 
 
 const Carrito = () => {
-    const [itemsOnCart, addItem, removeItem, clear, isInCart] = useContext(CartContext)
+    const {itemsOnCart, addItem, removeItem, clear, isInCart} = useContext(CartContext)
     let contadorProductos = itemsOnCart.length
 
     return (
