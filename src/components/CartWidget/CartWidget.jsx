@@ -4,14 +4,16 @@ import { CartContext } from "../../context/CartContext"
 import { useContext } from "react"
 
 
+
 const Carrito = () => {
-    const {itemsOnCart, addItem, removeItem, clear, isInCart} = useContext(CartContext)
+    const { itemsOnCart } = useContext(CartContext)
     let contadorProductos = itemsOnCart.length
+    console.log(itemsOnCart)
 
     return (
 
         <>
-            {contadorProductos > 0 ? <span>{contadorProductos}</span> : ""}
+            {contadorProductos > 0 ? <span style={{ color: "gray", fontSize: "30px", borderRadius: "25%", border: "solid 2px black", textAlign: "center" }}>{contadorProductos}</span> : ""}
             <img src={cart} className="Carrito" alt="icono Carrito" />
         </>
     )

@@ -3,6 +3,7 @@ import { useState } from "react"
 
 function ItemCount({ stock, initial, onAdd }) {
 
+    console.log(initial)
     const [count, setCount] = useState(initial)
 
     const aumentar = () => {
@@ -24,7 +25,7 @@ function ItemCount({ stock, initial, onAdd }) {
             <span onClick={aumentar}>+</span>
             <span>{count}</span>
             <span onClick={disminuir}>-</span>
-            <Button disabled={count === 0} variant="primary" onClick={() => onAdd(count)}>Agregar al carrito</Button>
+            <Button disabled={count === 0} variant="primary" onClick={() => onAdd(count)}>{!initial > 0 ? "Agregar al carrito" : "Modificar Cantidad"}</Button>
         </>
     )
 }

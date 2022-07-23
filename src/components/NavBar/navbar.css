@@ -34,7 +34,7 @@
     box-shadow: -1px 29px 33px 4px rgba(0, 0, 0, 0.62);
     -webkit-box-shadow: -1px 29px 33px 4px rgba(0, 0, 0, 0.62);
     right: 65px;
-    top: 160px;
+    top: 220px;
     border-radius: 15px;
     text-decoration: none;
 }
@@ -55,4 +55,9 @@
 .Section-button-inactivo {
     color: aliceblue;
     text-decoration: none;
+}
+
+a {
+    color: aliceblue !important;
+    text-decoration: none !important;
 }
