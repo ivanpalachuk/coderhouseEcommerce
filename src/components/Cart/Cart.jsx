@@ -9,6 +9,16 @@ import Item from "../Item/Item"
 function Cart() {
   const { itemsOnCart, clear, total } = useContext(CartContext)
 
+  const nuevaOrden = () => {
+    const user = { name: "ivan", telefono: 25521, email: "ivanzar@hotmai.com" }
+    const itemParaOrden = [];
+    itemsOnCart.map((articulo => {
+      return itemParaOrden.push({item: articulo.id, title: articulo.nombre, price: articulo.precio })
+    }))
+    const order = { user, itemParaOrden }
+    return console.log(order)
+  }
+
   return (
     !itemsOnCart.length == 0 ?
       <>
@@ -24,7 +34,7 @@ function Cart() {
 
         <button onClick={clear}>Eliminar todos los articulos</button>
         <div>Total ${total}</div>
-        <button >Ir a pagar</button>
+        <button onClick={nuevaOrden} >Ver funcion nuevaOrden</button>
       </>
       :
       <Link to="/"><Button>Navegar para ver mas articulos</Button></Link>

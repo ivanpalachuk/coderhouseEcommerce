@@ -13,6 +13,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default function iniFirestore(){
+export default function iniFirebase() {
     return app
 }
+
+

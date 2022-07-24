@@ -30,7 +30,10 @@ function ItemDetail(props) {
                     ${props.item.precio}
                 </Card.Text>
                 <Card>
-                    {cantidad ? <Link to={"/cart"}><Button>Terminar la compra</Button></Link> : <ItemCount stock={props.item.stock} initial={0} onAdd={funcionContador} />}
+                    {cantidad ? <>
+                        <Link to={"/cart"}><Button style={{ width: "90%", backgroundColor: "grey", border:"grey"}}>Ir a mi carrito</Button></Link>
+                        <Link to={"/"}><Button style={{ width: "90%", backgroundColor: "green", border: "green" }}>Seguir Comprando</Button></Link> </>
+                        : <ItemCount stock={props.item.stock} initial={0} onAdd={funcionContador} />}
                 </Card>
             </Card.Body>
         </Card>

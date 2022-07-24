@@ -1,9 +1,11 @@
 //Dependencias
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
+import { getFirestore, doc, getDocs, collection, query, where } from 'firebase/firestore';
 //Componentes
 import Task from '../Helpers/Task';
 import ItemList from "../ItemList/ItemList"
+
 
 //Estetica
 
@@ -17,19 +19,20 @@ function ItemListContainer() {
 
     useEffect(() => {
         if (categoria) {
-            Task
-                .then((res) => {
-                    setItems(res.filter(item => item.categoria === categoria));
-                })
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
+            const db = getFirestore()
+            const queryItemList = collection(db, "productos")
+            const queryItemListFilter = query(queryItemList, where("categoria", "==", categoria))
+            getDocs(queryItemListFilter)
+                .then(res => setItems(res.docs.map(item => ({ id: item.id, ...item.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         } else {
-            Task
-                .then((res) => {
-                    setItems(res);
-                })
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false));
+            const db = getFirestore()
+            const queryItemList = collection(db, "productos")
+            getDocs(queryItemList)
+                .then(res => setItems(res.docs.map(item => ({ id: item.id, ...item.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         }
 
     }, [categoria])//Cuando me resuelve la promesa, seteo la respuesta como los items, realizo catch para potenciales errores
