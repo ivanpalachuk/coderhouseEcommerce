@@ -1,15 +1,13 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { CartProvider } from "./context/CartContext"
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
-import Footer from './components/Footer/Footer';
-import "./assets/css/app.css"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Cart from './components/Cart/Cart';
 import NotFound from './components/NotFound/NotFound';
-import { CartProvider } from "./context/CartContext"
-
-
-
+import CheckOut from './components/CheckOut/CheckOut';
+import Footer from './components/Footer/Footer';
+import "./assets/css/app.css"
 
 
 function App() {
@@ -27,6 +25,7 @@ function App() {
             <Route path="/contact" element={<ItemDetailContainer />} />
             <Route path="/ayuda" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/cart/checkout" element={<CheckOut />} />
             <Route path="*" element={<Navigate to="/404" />} />
             <Route path="/404" element={<NotFound />} />
           </Routes>

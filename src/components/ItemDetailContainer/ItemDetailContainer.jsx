@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getFirestore,doc,getDoc } from "firebase/firestore"
+import { getFirestore, doc, getDoc } from "firebase/firestore"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import Task from "../Helpers/Task"
+import { Spinner } from "react-bootstrap"
+
 
 function ItemDetailContainer() {
 
@@ -14,14 +15,16 @@ function ItemDetailContainer() {
         const db = getFirestore()
         const queryItem = doc(db, "productos", id)
         getDoc(queryItem)
-        .then(res=>setItem({id:res.id, ...res.data()}))
-        .catch(err => console.loh(err))
-        .finally(()=>setLoading(false))
+            .then(res => setItem({ id: res.id, ...res.data() }))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
     }, [id, item])
 
     return (
-        loading ? <div>Cargando el articulo para ver el detalle como un champeon</div> :
-
+        loading ? <Spinner animation="border" role="status">
+            <span className="visually-hidden">Cargando...</span>
+        </Spinner>
+            :
             <div><ItemDetail item={item} /></div>
     )
 }

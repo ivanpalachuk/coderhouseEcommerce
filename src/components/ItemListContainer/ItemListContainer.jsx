@@ -1,10 +1,11 @@
 //Dependencias
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
-import { getFirestore, doc, getDocs, collection, query, where } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore';
+import Spinner from 'react-bootstrap/Spinner'
 //Componentes
-import Task from '../Helpers/Task';
 import ItemList from "../ItemList/ItemList"
+
 
 
 //Estetica
@@ -35,12 +36,14 @@ function ItemListContainer() {
                 .finally(() => setLoading(false))
         }
 
-    }, [categoria])//Cuando me resuelve la promesa, seteo la respuesta como los items, realizo catch para potenciales errores
+    }, [categoria])
 
 
     return (loading ?
-        <div> Bancame que ahi carga amigo</div> :
-        <ItemList items={items}></ItemList>//Itero el array items, y paso cada item como prop del Item que genere, me cersioro que los campos que entran como prop sean los mismos"
+        <Spinner animation="border" role="status">
+            <span className="visually-hidden">Cargando...</span>
+        </Spinner> :
+        <ItemList items={items}></ItemList>
     )
 }
 

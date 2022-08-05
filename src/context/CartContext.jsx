@@ -7,6 +7,7 @@ export const CartContext = createContext();
 //Creo el componente
 
 export function CartProvider({ children }) {
+    
     const [itemsOnCart, setItemsOnCart] = useState([])
 
     const isInCart = (item) => {

@@ -3,18 +3,16 @@ import { Link } from "react-router-dom"
 import "./item.css"
 import { useContext } from "react"
 import { CartContext } from "../../context/CartContext"
-import ItemCount from "../ItemCount/ItemCount"
+
 
 function Item(props) {
 
     const { removeItem } = useContext(CartContext)
 
-
-    const funcionEliminar = () => {
+    const removeItemFunction = () => {
         const productToRemove = props.id
         removeItem(productToRemove)
     }
-
 
     return (
         <Card style={{ width: '18rem', padding: "1rem", margin: "15px", marginTop: "-150px" }} key={props.id}>
@@ -27,22 +25,15 @@ function Item(props) {
                 <Card.Text>
                     ${props.precio}
                 </Card.Text>
-                {!props.botonEliminar ?
-
+                {!props.removeButton ?
                     <Link to={`/detail/${props.id}`}>
                         <Button variant="primary">Detalle del producto</Button>
                     </Link>
-
                     :
-
-                    <Button variant="primary" onClick={funcionEliminar}>Eliminar del carrito</Button>}
-
-                {props.cantidadInCart && <>
-                    <div>Cantidad en carrito = {props.cantidadInCart}</div>
-                    <div>Subtotal={props.subTotalItem}</div>
-                    <ItemCount stock={props.stock} initial={props.cantidadInCart} onAdd={""} cambiaCantidad={props.cantidadInCart}></ItemCount>
-                </>
-
+                    <>
+                        <div>Cantidad Seleccionada : {props.cantidadInCart}</div>
+                        <Button variant="primary" onClick={removeItemFunction}>Eliminar del carrito</Button>
+                    </>
                 }
 
             </Card.Body>

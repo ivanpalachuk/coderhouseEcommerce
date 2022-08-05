@@ -1,6 +1,4 @@
-//Componentes
 import Item from '../Item/Item';
-//Estetica
 import { CardGroup } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 

@@ -7,14 +7,12 @@ import { useContext } from "react"
 
 const Carrito = () => {
     const { itemsOnCart } = useContext(CartContext)
-    let contadorProductos = (itemsOnCart.reduce((previous, current) => previous += current.cantidad, 0))
-console.log(contadorProductos)
-
+    let productCount = (itemsOnCart.reduce((previous, current) => previous += current.cantidad, 0))
 
     return (
 
         <>
-            {contadorProductos > 0 ? <span style={{ color: "gray", fontSize: "30px", borderRadius: "25%", border: "solid 2px black", textAlign: "center" }}>{contadorProductos}</span> : ""}
+            {productCount > 0 ? <span style={{ color: "gray", fontSize: "30px", borderRadius: "25%", border: "solid 2px black", textAlign: "center" }}>{productCount}</span> : ""}
             <img src={cart} className="Carrito" alt="icono Carrito" />
         </>
     )

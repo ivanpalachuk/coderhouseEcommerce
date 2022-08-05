@@ -8,14 +8,13 @@ import ItemCount from "../ItemCount/ItemCount"
 function ItemDetail(props) {
 
     const { addItem } = useContext(CartContext)
-    const [cantidad, setCantidad] = useState()
+    const [quantity, setQuantity] = useState()
 
 
-    const funcionContador = (contador) => {
-        setCantidad(contador)
-        const productToCart = { item: props.item, cantidad: contador }
+    const functionCounter = (counter) => {
+        setQuantity(counter)
+        const productToCart = { item: props.item, cantidad: counter }
         addItem(productToCart)
-
     }
 
     return (
@@ -30,10 +29,10 @@ function ItemDetail(props) {
                     ${props.item.precio}
                 </Card.Text>
                 <Card>
-                    {cantidad ? <>
-                        <Link to={"/cart"}><Button style={{ width: "90%", backgroundColor: "grey", border:"grey"}}>Ir a mi carrito</Button></Link>
+                    {quantity ? <>
+                        <Link to={"/cart"}><Button style={{ width: "90%", backgroundColor: "grey", border: "grey" }}>Ir a mi carrito</Button></Link>
                         <Link to={"/"}><Button style={{ width: "90%", backgroundColor: "green", border: "green" }}>Seguir Comprando</Button></Link> </>
-                        : <ItemCount stock={props.item.stock} initial={0} onAdd={funcionContador} />}
+                        : <ItemCount stock={props.item.stock} initial={0} onAdd={functionCounter} />}
                 </Card>
             </Card.Body>
         </Card>
