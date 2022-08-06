@@ -1,6 +1,7 @@
 .card-img-top {
-    height: 150px;
-    max-width: 150px;
+    height: auto;
+    max-height: 150pxgit a;
+    max-width: 96%;
 }
 
 .card {

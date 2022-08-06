@@ -48,7 +48,7 @@
 }
 
 .Section-button-activo {
-    border: solid black 2px;
+    color: black !important;
     text-decoration: none;
 }
 
