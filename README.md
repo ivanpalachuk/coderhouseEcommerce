@@ -1,4 +1,4 @@
-## Catito Store
+# Catito Store
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run (don´t forget to `npm i`first)
 
-### `npm start`
+## `npm start`
 
 ### About this proyect
 
@@ -14,7 +14,7 @@ Catito Store is a SPA; created as practise required from CoderHouse; feel free t
 
 ### About Developer
 
-This is my first React Proyect, hope that you can enjoy it! My name is Ivan, i´am a jr developer looking for a first job on this great 0 and 1 word!
+This is my first React Project, hope that you can enjoy it! My name is Ivan, i´am a jr developer looking for a first job on this great 0 and 1 word!
 
 ### Dependencies
 
