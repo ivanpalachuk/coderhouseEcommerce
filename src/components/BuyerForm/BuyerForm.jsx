@@ -2,13 +2,13 @@ import { useState, useContext } from "react"
 import { CartContext } from "../../context/CartContext"
 import { getFirestore, collection, addDoc } from "firebase/firestore"
 import { useNavigate } from "react-router-dom"
-import CheckOut from "../CheckOut/CheckOut"
-
 
 
 function BuyerForm() {
 
     const { itemsOnCart, clear } = useContext(CartContext)
+    const [orderId, setOrderId] = useState()
+    const navigate = useNavigate();
 
     const [buyerData, setBuyerData] = useState({
         buyerName: "",
@@ -17,8 +17,6 @@ function BuyerForm() {
         buyerPhone: "",
     })
 
-    const [orderId, setOrderId] = useState()
-    const navigate = useNavigate();
 
     const placeOrder = () => {
         const order = {}
@@ -37,7 +35,8 @@ function BuyerForm() {
             .then(res => setOrderId(res.id))
             .catch(err => console.log(err))
             .finally(() => clear())
-        navigate("/cart/checkout", { state: orderId })
+
+        navigate(`/cart/checkout/${orderId}`)
     }
 
     const onHandlerSubmit = (e) => {
@@ -45,14 +44,12 @@ function BuyerForm() {
         buyerData.buyerEmail === buyerData.buyerEmailValidation ? placeOrder() : alert("Los Email no coinciden")
     }
 
-
     const onHandleChange = (e) => {
         setBuyerData({
             ...buyerData,
             [e.target.name]: e.target.value
         })
     }
-
 
     return (
         <div style={{ border: "black 3px solid", width: "350px" }}>
@@ -94,7 +91,6 @@ function BuyerForm() {
                         />
                     </label>
                 </div>
-
                 <div>
                     <label>
                         Telefono:
@@ -109,9 +105,6 @@ function BuyerForm() {
                 </div>
                 <button type="submit">Generar una orden</button>
             </form>
-            <div>
-                {orderId && <div> Gracias, {buyerData.buyerName} por confiar en Catito Store el codigo de su orden es: {orderId}</div>}
-            </div>
         </div>
     )
 

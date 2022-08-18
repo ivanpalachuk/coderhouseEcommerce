@@ -25,7 +25,7 @@ function App() {
             <Route path="/contact" element={<ItemDetailContainer />} />
             <Route path="/ayuda" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/cart/checkout" element={<CheckOut />} />
+            <Route path="/cart/checkout/:id" element={<CheckOut />} />
             <Route path="*" element={<Navigate to="/404" />} />
             <Route path="/404" element={<NotFound />} />
           </Routes>
