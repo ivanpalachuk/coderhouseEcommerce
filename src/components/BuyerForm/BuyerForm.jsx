@@ -27,8 +27,7 @@ function BuyerForm() {
             const title = item.item.nombre
             const quantity = item.quantity
             return { id, price, title, quantity }
-        });
-
+        })
         const db = getFirestore()
         const queryInsertOrder = collection(db, "orders")
         addDoc(queryInsertOrder, order)
@@ -36,7 +35,7 @@ function BuyerForm() {
             .catch(err => console.log(err))
             .finally(() => clear())
 
-        navigate(`/cart/checkout/${orderId}`)
+         navigate(`/cart/checkout/${orderId}`)
     }
 
     const onHandlerSubmit = (e) => {
