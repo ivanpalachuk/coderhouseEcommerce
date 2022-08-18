@@ -1,8 +1,8 @@
 import React from 'react'
 
-function CheckOut() {
+function CheckOut(orderId) {
     return (
-        <div>Gracias por comprar en Catito Store tu orden ha sido procesada</div>
+        <div>Gracias por comprar en Catito Store tu orden {orderId} ha sido procesada</div>
     )
 }
 

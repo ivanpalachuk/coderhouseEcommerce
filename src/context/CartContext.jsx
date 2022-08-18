@@ -20,7 +20,7 @@ export function CartProvider({ children }) {
             items.push(item);
         } else {
             let existingItem = itemsOnCart.find(producto => producto.item.id === item.item.id)
-            existingItem.cantidad += item.cantidad;
+            existingItem.quantity += item.quantity;
         }
         setItemsOnCart(items)
     }
@@ -31,14 +31,14 @@ export function CartProvider({ children }) {
 
     const changeQuantity = (item) => {
         let existingItem = itemsOnCart.find(producto => producto.item.id === item.item.id)
-        existingItem.cantidad = item.cantidad;
+        existingItem.quantity = item.quantity;
     }
 
     const clear = () => {
         setItemsOnCart([])
     }
 
-    const total = itemsOnCart.reduce((previous, current) => previous + current.item.precio * current.cantidad, 0)
+    const total = itemsOnCart.reduce((previous, current) => previous + current.item.precio * current.quantity, 0)
 
 
 

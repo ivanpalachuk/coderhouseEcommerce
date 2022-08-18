@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 const Carrito = () => {
     const { itemsOnCart } = useContext(CartContext)
-    let productCount = (itemsOnCart.reduce((previous, current) => previous += current.cantidad, 0))
+    let productCount = (itemsOnCart.reduce((previous, current) => previous += current.quantity, 0))
 
     return (
 
