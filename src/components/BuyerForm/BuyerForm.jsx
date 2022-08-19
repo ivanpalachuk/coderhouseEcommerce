@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 function BuyerForm() {
 
     const { itemsOnCart, clear } = useContext(CartContext)
-    const [orderId, setOrderId] = useState()
+
     const navigate = useNavigate();
 
     const [buyerData, setBuyerData] = useState({
@@ -31,11 +31,12 @@ function BuyerForm() {
         const db = getFirestore()
         const queryInsertOrder = collection(db, "orders")
         addDoc(queryInsertOrder, order)
-            .then(res => setOrderId(res.id))
+            .then(res => {
+                clear()
+                navigate(`/cart/checkout/${res.id}`)
+            })
             .catch(err => console.log(err))
-            .finally(() => clear())
 
-         navigate(`/cart/checkout/${orderId}`)
     }
 
     const onHandlerSubmit = (e) => {
@@ -109,7 +110,3 @@ function BuyerForm() {
 
 }
 export default BuyerForm
-
-
-
-
