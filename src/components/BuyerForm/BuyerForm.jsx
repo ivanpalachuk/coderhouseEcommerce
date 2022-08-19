@@ -32,7 +32,7 @@ function BuyerForm() {
         const queryInsertOrder = collection(db, "orders")
         addDoc(queryInsertOrder, order)
             .then(res => {
-                const _orderId = res.id
+                let _orderId = res.id
                 setOrderId(_orderId)
                 clear()
                 navigate(`/cart/checkout/${_orderId}`)
