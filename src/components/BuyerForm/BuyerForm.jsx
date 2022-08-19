@@ -63,6 +63,7 @@ function BuyerForm() {
                             placeholder="Nombre"
                             value={buyerData.buyerName}
                             onChange={onHandleChange}
+                            required
                         />
                     </label>
                 </div>
@@ -76,6 +77,7 @@ function BuyerForm() {
                             placeholder="Email"
                             value={buyerData.buyerEmail}
                             onChange={onHandleChange}
+                            required
                         />
                     </label>
                 </div>
@@ -88,6 +90,7 @@ function BuyerForm() {
                             placeholder="Por favor, repita el mail"
                             value={buyerData.buyerEmailValidation}
                             onChange={onHandleChange}
+                            required
                         />
                     </label>
                 </div>
@@ -100,6 +103,7 @@ function BuyerForm() {
                             placeholder="Telefono"
                             value={buyerData.buyerPhone}
                             onChange={onHandleChange}
+                            required
                         />
                     </label>
                 </div>
